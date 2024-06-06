@@ -20,10 +20,6 @@ const App = () => {
 
     b1.click()
     b2.click()
-
-    setTimeout(() => {
-      window.location.reload()
-    }, 45000)
   }
 
   return (

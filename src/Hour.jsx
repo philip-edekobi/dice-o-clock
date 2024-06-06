@@ -45,13 +45,12 @@ export default function Hour({computeViableDieFace}) {
         h="12rem"
         justify="center"
         align="center"
-        flexWrap="wrap"
       >
-        <Box display={hour > 6 ? '' : 'none'}>
-          <Dice size={80} ref={diceRef} cheatValue={hour - dieFace} />
+        <Box margin="0" display={hour > 6 ? '' : 'none'}>
+          <Dice size={40} ref={diceRef} cheatValue={hour - dieFace} />
         </Box>
         
-        <Dice marginLeft="0.5rem" size={40} backgroundColor="#242424" ref={ref2} cheatValue={dieFace} defaultValue={dieFace} />
+        <Dice marginLeft="-0.2rem" size={40} backgroundColor="#242424" ref={ref2} cheatValue={dieFace} />
       </Flex>
 
       <Button id="hr" display="none" mt="4" colorScheme="purple" onClick={rollDice}>

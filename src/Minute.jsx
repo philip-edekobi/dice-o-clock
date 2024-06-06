@@ -32,7 +32,7 @@ export default function Minute ({computeViableDieFace}) {
   }
 
   return (
-    <Flex w="35%" flexDir="column" >
+    <Flex w="70%" flexDir="column" >
       <Flex
         // bgColor="#363636"
         w="100%"
@@ -40,7 +40,7 @@ export default function Minute ({computeViableDieFace}) {
         justify="center"
         align="center"
       >
-        <Flex mt="3rem" w="40%" justify="center" align="center" h="100%">
+        <Flex mt="3rem" w="35%" justify="center" align="center" h="100%">
           <Box display={Math.floor(min / 10) > 0 ? '' : 'none'}>
             <Dice size={40} ref={diceRef} cheatValue={Math.floor(min/10)} /> 
           </Box>
@@ -51,7 +51,7 @@ export default function Minute ({computeViableDieFace}) {
         </Flex>
 
 
-        <Flex mt="3.5rem" w="60%" flexDir="column-reverse" justify="center" flexWrap="wrap" align="center" h="100%">
+        <Flex mt="0.5rem" w="65%" flexDir="row-reverse" justify="center" flexWrap="wrap" align="center" h="100%">
           <Box display={min % 10 > 6 ? '' : 'none'} mb="2">
             <Dice size={40} ref={ref2} cheatValue={(min % 10) - dieFace} /> 
           </Box>
