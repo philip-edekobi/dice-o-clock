@@ -1,6 +1,7 @@
 import {Box, Flex, Button} from '@chakra-ui/react';
 import {useState, useRef, useEffect} from 'react';
 import Dice from  "react-dice-roll"
+import { GoDash } from "react-icons/go";
 
 export default function Minute ({computeViableDieFace}) {
   const [min, setMin] = useState(null)
@@ -31,30 +32,41 @@ export default function Minute ({computeViableDieFace}) {
   }
 
   return (
-    <Flex w="30%" flexDir="column" >
+    <Flex w="35%" flexDir="column" >
       <Flex
-        bgColor="#363636"
+        // bgColor="#363636"
         w="100%"
-        h="8rem"
+        h="12rem"
         justify="center"
         align="center"
       >
-        <Flex w="40%" justify="center" align="center" h="100%">
+        <Flex mt="3rem" w="40%" justify="center" align="center" h="100%">
           <Box display={Math.floor(min / 10) > 0 ? '' : 'none'}>
             <Dice size={40} ref={diceRef} cheatValue={Math.floor(min/10)} /> 
           </Box>
+
+          <GoDash style={{
+            display: Math.floor(min/10) === 0 ? "" : "none"
+          }} />
         </Flex>
 
-        <Flex w="60%" justify="center" flexWrap="wrap" align="center" h="100%">
-          <Box display={min % 10 > 6 ? '' : 'none'}>
+
+        <Flex mt="3.5rem" w="60%" flexDir="column-reverse" justify="center" flexWrap="wrap" align="center" h="100%">
+          <Box display={min % 10 > 6 ? '' : 'none'} mb="2">
             <Dice size={40} ref={ref2} cheatValue={(min % 10) - dieFace} /> 
           </Box>
 
-          <Dice size={40} ref={ref3} cheatValue={dieFace} />
+          <Box display={min % 10 !== 0  ? '' : 'none'}>
+            <Dice size={40} ref={ref3} cheatValue={dieFace} />
+          </Box>
+
+          <GoDash style={{
+            display: min % 10 === 0 ? "" : "none"
+          }} />
         </Flex>
       </Flex>
 
-      <Button mt="4" colorScheme="purple" onClick={rollDice}>
+      <Button id="min" display="none" mt="4" colorScheme="purple" onClick={rollDice}>
         Roll Minutes
       </Button>
     </Flex>

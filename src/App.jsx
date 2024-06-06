@@ -1,4 +1,4 @@
-import {Text, Flex} from '@chakra-ui/react';
+import {Text, Flex, Button, Spacer} from '@chakra-ui/react';
 import {FaDice} from 'react-icons/fa6';
 import Hour from './Hour';
 import Minute from './Minute';
@@ -13,6 +13,18 @@ const App = () => {
     const face = Math.floor (Math.random () * (max - min + 1)) + min;
     return face;
   };
+
+  const rollall = () => {
+    const b1 = document.getElementById("hr")
+    const b2 = document.getElementById("min")
+
+    b1.click()
+    b2.click()
+
+    setTimeout(() => {
+      window.location.reload()
+    }, 45000)
+  }
 
   return (
     <Flex
@@ -30,16 +42,21 @@ const App = () => {
       </Flex>
 
       <Flex
-        mt="6rem"
-        w="60%"
-        justify="space-around"
-        align="center"
+        mt="2rem"
+        mb="2rem"
+        w="40%"
         fontSize="x-large"
       >
+        <Spacer />
         <Hour computeViableDieFace={computeViableDieFace} />
-        :
+
         <Minute computeViableDieFace={computeViableDieFace} />
+        <Spacer />
       </Flex>
+
+      <Button mt="2rem" h="3rem" w="9rem" colorScheme='purple' onClick={rollall}> 
+       Time Check 
+      </Button>
     </Flex>
   );
 };
